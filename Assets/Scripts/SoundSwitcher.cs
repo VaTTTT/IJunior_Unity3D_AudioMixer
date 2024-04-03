@@ -1,10 +1,9 @@
-using System.Threading;
 using UnityEngine;
 
 public class SoundSwitcher : MonoBehaviour
 {
-    [SerializeField] private SoundEffectsPlayer _soundEffectsPlayer;
-    [SerializeField] private MusicPlayer _musicPlayer;
+    [SerializeField] private AudioSource _soundEffectsPlayer;
+    [SerializeField] private AudioSource _musicPlayer;
 
     private bool _isAllSoundsMuted;
 
@@ -27,8 +26,8 @@ public class SoundSwitcher : MonoBehaviour
 
     private void SetMuteSwitch(bool isMuted)
     {
-        _soundEffectsPlayer.GetComponent<AudioSource>().mute = isMuted;
-        _musicPlayer.GetComponent<AudioSource>().mute = isMuted;
+        _soundEffectsPlayer.mute = isMuted;
+        _musicPlayer.mute = isMuted;
         _isAllSoundsMuted = isMuted;
     }
 }
